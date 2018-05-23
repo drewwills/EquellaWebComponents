@@ -2,9 +2,7 @@
   <div class="search-results">
     <h1>{{ msg }}</h1>
     <p>
-      For guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://github.com/vuejs/vue-cli/tree/dev/docs" target="_blank">vue-cli documentation</a>.
+      Found the following items in Equella.
     </p>
     <ul>
       <li v-for="item in items" :key="item.uuid">
@@ -27,20 +25,20 @@ export default {
   },
   async created() {
     try {
-      const response = await fetch('/sample/search.json');
+      const response = await fetch('https://equella.unicon.net/demo-oa18-up-eq-integ/api/search/?start=0&length=10&collections=812ee0bb-b53e-4a84-87db-0e328b374494&order=name&reverse=false&info=metadata&status=LIVE');
       if (!response.ok) {
         throw new Error(response.statusText);
       }
       const data = await response.json();
-      for (const item of data) {
+      this.items = data.results.map(item => {
         let xml = new DOMParser().parseFromString(item.metadata, 'application/xml');
-        this.items.push({
+        return {
           uuid: item.uuid,
           name: xml.getElementsByTagName('name')[0].textContent,
           description: xml.getElementsByTagName('description')[0].textContent,
           url: item.links.view
-        });
-      }
+        };
+      });
       console.log(data);
       console.log(this.items);
     } catch (err) {

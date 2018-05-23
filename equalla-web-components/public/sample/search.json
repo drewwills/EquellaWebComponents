@@ -1,20 +1,25 @@
-[
-  {
-    "uuid": "deaf930a-af85-42f3-a0f5-9f39b14eb2c2",
-    "version": 1,
-    "metadata": "<xml><metadata><name>ENG101 - Introduction<\/name><description>ENG101<\/description><type>Introduction<\/type><extended_description>&lt;h1&gt;Welcome to ENGL101!&lt;\/h1&gt;\n&lt;p&gt;&lt;em&gt;This class will expand your abilities to think and write consisely and effectively.&lt;\/em&gt;&lt;\/p&gt;\n<\/extended_description><\/metadata><\/xml>",
-    "links": {
-      "view": "https:\/\/equella.unicon.net\/demo-oa18-up-eq-integ\/items\/deaf930a-af85-42f3-a0f5-9f39b14eb2c2\/1\/",
-      "self": "https:\/\/equella.unicon.net\/demo-oa18-up-eq-integ\/api\/item\/deaf930a-af85-42f3-a0f5-9f39b14eb2c2\/1\/"
+{
+  "start": 0,
+  "length": 2,
+  "available": 2,
+  "results": [
+    {
+      "uuid": "deaf930a-af85-42f3-a0f5-9f39b14eb2c2",
+      "version": 1,
+      "metadata": "<xml><metadata><name>ENG101 - Introduction<\/name><description>ENG101<\/description><type>Introduction<\/type><extended_description>&lt;h1&gt;Welcome to ENGL101!&lt;\/h1&gt;\n&lt;p&gt;&lt;em&gt;This class will expand your abilities to think and write consisely and effectively.&lt;\/em&gt;&lt;\/p&gt;\n<\/extended_description><\/metadata><\/xml>",
+      "links": {
+        "view": "https:\/\/equella.unicon.net\/demo-oa18-up-eq-integ\/items\/deaf930a-af85-42f3-a0f5-9f39b14eb2c2\/1\/",
+        "self": "https:\/\/equella.unicon.net\/demo-oa18-up-eq-integ\/api\/item\/deaf930a-af85-42f3-a0f5-9f39b14eb2c2\/1\/"
+      }
+    },
+    {
+      "uuid": "9f495543-8f8c-4ed3-b7df-9e6540e6763a",
+      "version": 1,
+      "metadata": "<xml><metadata><description>ENG101<\/description><type>Syllabus<\/type><extended_description>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;img src=&quot;https:\/\/equella.unicon.net\/demo-oa18-up-eq-integ\/items\/db25c61a-7283-4813-bc0b-455ff86d9596\/1\/DSCN5999.JPG?.vi=file&quot; alt=&quot;DSCN5999.JPG&quot; title=&quot;DSCN5999.JPG&quot; width=&quot;300px&quot;&gt;&lt;\/span&gt;&lt;\/strong&gt;&lt;\/p&gt;\n&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;ENG101 - Syllabus&lt;\/span&gt;&lt;\/strong&gt;&lt;\/p&gt;\n&lt;p&gt;Objectives&lt;\/p&gt;\n&lt;ul&gt;&lt;li&gt;The student will learn to effectively use the fundamentals of the English language through discussion, short essays,&#x00a0; and a final term paper.&lt;\/li&gt;&lt;\/ul&gt;\n&lt;p&gt;Lessons&lt;\/p&gt;\n&lt;ul&gt;&lt;li&gt;16 lessons (2x a week)&lt;\/li&gt;&lt;\/ul&gt;\n&lt;p&gt;Scoring&lt;\/p&gt;\n&lt;ul&gt;&lt;li&gt;Participation (20% total grade)&lt;\/li&gt;&lt;li&gt;5 short essays (40% total grade)&lt;\/li&gt;&lt;li&gt;1 term paper (40% total grade)&lt;\/li&gt;&lt;\/ul&gt;\n&lt;p&gt;&lt;\/p&gt;\n<\/extended_description><name>ENG101 - Syllabus<\/name><\/metadata><\/xml>",
+      "links": {
+        "view": "https:\/\/equella.unicon.net\/demo-oa18-up-eq-integ\/items\/9f495543-8f8c-4ed3-b7df-9e6540e6763a\/1\/",
+        "self": "https:\/\/equella.unicon.net\/demo-oa18-up-eq-integ\/api\/item\/9f495543-8f8c-4ed3-b7df-9e6540e6763a\/1\/"
+      }
     }
-  },
-  {
-    "uuid": "9f495543-8f8c-4ed3-b7df-9e6540e6763a",
-    "version": 1,
-    "metadata": "<xml><metadata><description>ENG101<\/description><type>Syllabus<\/type><extended_description>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;img src=&quot;https:\/\/equella.unicon.net\/demo-oa18-up-eq-integ\/items\/db25c61a-7283-4813-bc0b-455ff86d9596\/1\/DSCN5999.JPG?.vi=file&quot; alt=&quot;DSCN5999.JPG&quot; title=&quot;DSCN5999.JPG&quot; width=&quot;300px&quot;&gt;&lt;\/span&gt;&lt;\/strong&gt;&lt;\/p&gt;\n&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;ENG101 - Syllabus&lt;\/span&gt;&lt;\/strong&gt;&lt;\/p&gt;\n&lt;p&gt;Objectives&lt;\/p&gt;\n&lt;ul&gt;&lt;li&gt;The student will learn to effectively use the fundamentals of the English language through discussion, short essays,&#x00a0; and a final term paper.&lt;\/li&gt;&lt;\/ul&gt;\n&lt;p&gt;Lessons&lt;\/p&gt;\n&lt;ul&gt;&lt;li&gt;16 lessons (2x a week)&lt;\/li&gt;&lt;\/ul&gt;\n&lt;p&gt;Scoring&lt;\/p&gt;\n&lt;ul&gt;&lt;li&gt;Participation (20% total grade)&lt;\/li&gt;&lt;li&gt;5 short essays (40% total grade)&lt;\/li&gt;&lt;li&gt;1 term paper (40% total grade)&lt;\/li&gt;&lt;\/ul&gt;\n&lt;p&gt;&lt;\/p&gt;\n<\/extended_description><name>ENG101 - Syllabus<\/name><\/metadata><\/xml>",
-    "links": {
-      "view": "https:\/\/equella.unicon.net\/demo-oa18-up-eq-integ\/items\/9f495543-8f8c-4ed3-b7df-9e6540e6763a\/1\/",
-      "self": "https:\/\/equella.unicon.net\/demo-oa18-up-eq-integ\/api\/item\/9f495543-8f8c-4ed3-b7df-9e6540e6763a\/1\/"
-    }
-  }
-]
+  ]
+}
