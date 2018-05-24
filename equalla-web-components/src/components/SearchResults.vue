@@ -4,9 +4,9 @@
     <p>
       Found the following items in Equella.
     </p>
-    <ul>
-      <li v-for="item in items" :key="item.uuid">
-        <a v-bind:href="item.url">{{ item.name }}</a>
+    <ul class="list-group">
+      <li class="list-group-item" v-for="item in items" :key="item.uuid">
+        <a v-bind:href="item.url"><strong>{{ item.name }}</strong></a>
         <p>{{ item.description }}</p>
       </li>
     </ul>
@@ -39,10 +39,11 @@ export default {
           url: item.links.view
         };
       });
-      console.log(data);
+      // eslint-disable-next-line
       console.log(this.items);
     } catch (err) {
       // TODO: User-appropriate feedback
+      // eslint-disable-next-line
       console.error(err);
     }
   }
@@ -51,4 +52,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.search-results {
+  padding: 2rem;
+}
 </style>
