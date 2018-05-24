@@ -1,5 +1,5 @@
 <template>
-  <div class="container search-results">
+  <div class="search-results">
     <img src="https://equella.unicon.net/demo-oa18-up-eq-integ/s/ewc-logo" class="img-rounded pull-right" alt="EQUELLA Logo" height="80">
     <h1>{{ msg }}</h1>
     <p>
