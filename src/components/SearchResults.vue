@@ -2,21 +2,31 @@
   <div class="search-results">
     <h1>{{ msg }}</h1>
     <p>
-      Found the following items in Equella.
+      Found the following {{items.length}} {{ searchResultTypes }} in Equella.
     </p>
-    <ul class="list-group">
-      <li class="list-group-item" v-for="item in items" :key="item.uuid">
-        <a v-bind:href="item.url"><strong>{{ item.name }}</strong></a>
-        <p>{{ item.description }}</p>
-      </li>
-    </ul>
+    <div class="list-group">
+      <div class="list-group-item media" v-for="item in items" :key="item.uuid">
+        <div class="media-left">
+          <img v-bind:src="item.url+resultIcon" class="media-object" style="width:180px">
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><a v-bind:href="item.url+'/{{ resultLandingPage }}'">{{ item.name }}</a></h4>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    msg: String
+    msg: String,
+    baseUrl: String,
+    collectionId: String,
+    searchResultTypes: String,
+    resultIcon: String,
+    resultLandingPage: String
   },
   data() {
     return {
@@ -25,17 +35,16 @@ export default {
   },
   async created() {
     try {
-      const response = await fetch('https://equella.unicon.net/demo-oa18-up-eq-integ/api/search/?start=0&length=10&collections=812ee0bb-b53e-4a84-87db-0e328b374494&order=name&reverse=false&info=metadata&status=LIVE');
+      const response = await fetch(this.baseUrl+'/api/search/?start=0&length=10&collections='+this.collectionId+'&order=name&reverse=false&info=basic&status=LIVE');
       if (!response.ok) {
         throw new Error(response.statusText);
       }
       const data = await response.json();
       this.items = data.results.map(item => {
-        let xml = new DOMParser().parseFromString(item.metadata, 'application/xml');
         return {
           uuid: item.uuid,
-          name: xml.getElementsByTagName('name')[0].textContent,
-          description: xml.getElementsByTagName('description')[0].textContent,
+          name: item.name,
+          description: item.description,
           url: item.links.view
         };
       });
