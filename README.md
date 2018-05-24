@@ -2,7 +2,7 @@
 
 Equella integration Web Components for the uPortal ecosystem.
 
-You will need Node 8.x.
+You will need Node 8+ and Git 1+ to use this project.
 
 ## Initial Setup
 
