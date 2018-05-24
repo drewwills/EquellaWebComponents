@@ -2,6 +2,8 @@
 
 Equella integration Web Components for the uPortal ecosystem.
 
+You will need Node 8.x.
+
 ## Initial Setup
 
 ```console
