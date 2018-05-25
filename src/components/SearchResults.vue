@@ -29,8 +29,18 @@
   </div>
 </template>
 
-<!-- Pull in a private copy of Bootstrap for now, since uPortal's is blocked -->
-<style src="bootstrap/dist/css/bootstrap.css" />
+<!-- a minimal scoped version of bootstrap -->
+<style lang="less" scoped>
+// core bootstrap framework
+@import "../../node_modules/bootstrap/less/variables.less";
+@import "../../node_modules/bootstrap/less/mixins.less";
+
+// styles needed by page
+@import "../../node_modules/bootstrap/less/type.less";
+@import "../../node_modules/bootstrap/less/utilities.less";
+@import "../../node_modules/bootstrap/less/list-group.less";
+@import "../../node_modules/bootstrap/less/media.less";
+</style>
 
 <script>
 export default {
