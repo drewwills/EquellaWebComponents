@@ -1,7 +1,7 @@
 <template>
   <div class="search-results">
     <div class="search-header clearfix">
-      <img id="equellaLogo" src="https://equella.unicon.net/demo-oa18-up-eq-integ/s/ewc-logo" class="img-rounded pull-right" alt="EQUELLA Logo" />
+      <img id="equellaLogo" v-bind:src="baseUrl + '/s/ewc-logo'" class="pull-right" alt="EQUELLA Logo" />
       <h1>
         {{ msg }}
       </h1>
@@ -16,7 +16,7 @@
         </div>
         <div class="media-body">
           <h4 class="media-heading">
-            <a v-bind:href="item.url + '/{{ resultLandingPage }}'">
+            <a v-bind:href="item.url + resultLandingPage">
               {{ item.name }}
             </a>
           </h4>
@@ -99,6 +99,7 @@ p {
 
 #equellaLogo {
   height: 8rem;
+  border-radius: @thumbnail-border-radius;
 }
 
 .search-header p {
