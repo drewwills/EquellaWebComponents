@@ -29,19 +29,6 @@
   </div>
 </template>
 
-<!-- a minimal scoped version of bootstrap -->
-<style lang="less" scoped>
-// core bootstrap framework
-@import "../../node_modules/bootstrap/less/variables.less";
-@import "../../node_modules/bootstrap/less/mixins.less";
-
-// styles needed by page
-@import "../../node_modules/bootstrap/less/type.less";
-@import "../../node_modules/bootstrap/less/utilities.less";
-@import "../../node_modules/bootstrap/less/list-group.less";
-@import "../../node_modules/bootstrap/less/media.less";
-</style>
-
 <script>
 export default {
   props: {
@@ -87,21 +74,42 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.search-results {
-  padding: 2rem;
+<!-- a minimal scoped version of bootstrap -->
+<style lang="less" scoped>
+// core bootstrap framework
+@import "../../node_modules/bootstrap/less/variables.less";
+@import "../../node_modules/bootstrap/less/mixins.less";
+
+// bootstrap styles needed by page
+@import "../../node_modules/bootstrap/less/type.less";
+@import "../../node_modules/bootstrap/less/utilities.less";
+@import "../../node_modules/bootstrap/less/list-group.less";
+@import "../../node_modules/bootstrap/less/media.less";
+
+// set base fonts
+@headings-font-family: @font-family-base;
+
+p {
+  font-family: @font-family-base;
 }
+
+.search-results {
+  padding: @padding-large-horizontal;
+}
+
 #equellaLogo {
   height: 8rem;
 }
+
 .search-header p {
-  font-size: 150%;
+  font-size: @font-size-h3;
 }
+
 .search-items {
   margin-top: 1rem;
 }
+
 .search-items p {
-  font-size: 125%;
+  font-size: @font-size-h4;
 }
 </style>
