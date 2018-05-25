@@ -53,9 +53,6 @@
   </div>
 </template>
 
-<style src="bootstrap/dist/css/bootstrap.css" />
-<style src="bootstrap-vue/dist/bootstrap-vue.css" />
-
 <script>
 import carousel from "bootstrap-vue/es/components/carousel/carousel";
 import slide from "bootstrap-vue/es/components/carousel/carousel-slide";
@@ -83,3 +80,17 @@ export default {
   }
 };
 </script>
+
+<!-- a minimal scoped version of bootstrap -->
+<style lang="scss">
+// core bootstrap framework
+@import "../../node_modules/bootstrap/scss/functions.scss";
+@import "../../node_modules/bootstrap/scss/variables.scss";
+@import "../../node_modules/bootstrap/scss/mixins.scss";
+
+// bootstrap styles needed by page
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/carousel";
+@import "../../node_modules/bootstrap/scss/utilities";
+</style>

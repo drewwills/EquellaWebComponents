@@ -75,7 +75,7 @@ export default {
 </script>
 
 <!-- a minimal scoped version of bootstrap -->
-<style lang="scss" scoped>
+<style lang="scss">
 // core bootstrap framework
 @import "../../node_modules/bootstrap/scss/functions.scss";
 @import "../../node_modules/bootstrap/scss/variables.scss";
