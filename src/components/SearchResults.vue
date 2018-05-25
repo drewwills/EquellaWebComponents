@@ -1,11 +1,13 @@
 <template>
   <div class="search-results">
-    <img src="https://equella.unicon.net/demo-oa18-up-eq-integ/s/ewc-logo" class="img-rounded pull-right" alt="EQUELLA Logo" height="80">
-    <h1>{{ msg }}</h1>
-    <p>
-      Found the following {{items.length}} {{ searchResultTypes }} in Equella.
-    </p>
-    <div class="list-group">
+    <div class="search-header clearfix">
+      <img id="equellaLogo" src="https://equella.unicon.net/demo-oa18-up-eq-integ/s/ewc-logo" class="img-rounded pull-right" alt="EQUELLA Logo" />
+      <h1>{{ msg }}</h1>
+      <p>
+        Found the following {{items.length}} {{ searchResultTypes }} in Equella.
+      </p>
+    </div>
+    <div class="search-items list-group">
       <div class="list-group-item media" v-for="item in items" :key="item.uuid">
         <div class="media-left">
           <img v-bind:src="item.url+resultIcon" class="media-object" style="width:180px">
@@ -18,6 +20,9 @@
     </div>
   </div>
 </template>
+
+<!-- Pull in a private copy of Bootstrap for now, since uPortal's is blocked -->
+<style src="bootstrap/dist/css/bootstrap.css" />
 
 <script>
 export default {
@@ -64,5 +69,17 @@ export default {
 <style scoped>
 .search-results {
   padding: 2rem;
+}
+#equellaLogo {
+  height: 8rem;
+}
+.search-header p {
+  font-size: 150%;
+}
+.search-items {
+  margin-top: 1rem;
+}
+.search-items p {
+  font-size: 125%;
 }
 </style>
