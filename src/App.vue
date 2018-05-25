@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import SearchResults from './components/SearchResults.vue'
+import SearchResults from "./components/SearchResults.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    'search-results': SearchResults
+    "search-results": SearchResults
   }
-}
+};
 </script>
 
 <style>

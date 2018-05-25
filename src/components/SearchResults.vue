@@ -2,7 +2,9 @@
   <div class="search-results">
     <div class="search-header clearfix">
       <img id="equellaLogo" src="https://equella.unicon.net/demo-oa18-up-eq-integ/s/ewc-logo" class="img-rounded pull-right" alt="EQUELLA Logo" />
-      <h1>{{ msg }}</h1>
+      <h1>
+        {{ msg }}
+      </h1>
       <p>
         Found the following {{items.length}} {{ searchResultTypes }} in Equella.
       </p>
@@ -10,11 +12,17 @@
     <div class="search-items list-group">
       <div class="list-group-item media" v-for="item in items" :key="item.uuid">
         <div class="media-left">
-          <img v-bind:src="item.url+resultIcon" class="media-object" style="width:180px">
+          <img v-bind:src="item.url + resultIcon" class="media-object" style="width:180px">
         </div>
         <div class="media-body">
-          <h4 class="media-heading"><a v-bind:href="item.url+'/{{ resultLandingPage }}'">{{ item.name }}</a></h4>
-          <p>{{ item.description }}</p>
+          <h4 class="media-heading">
+            <a v-bind:href="item.url + '/{{ resultLandingPage }}'">
+              {{ item.name }}
+            </a>
+          </h4>
+          <p>
+            {{ item.description }}
+          </p>
         </div>
       </div>
     </div>
@@ -37,23 +45,27 @@ export default {
   data() {
     return {
       items: []
-    }
+    };
   },
   async created() {
     try {
-      const response = await fetch(this.baseUrl+'/api/search/?start=0&length=10&collections='+this.collectionId+'&order=name&reverse=false&info=basic&status=LIVE');
+      const response = await fetch(
+        `${this.baseUrl}/api/search/?start=0&length=10&collections=${
+          this.collectionId
+        }&order=name&reverse=false&info=basic&status=LIVE`
+      );
       if (!response.ok) {
         throw new Error(response.statusText);
       }
       const data = await response.json();
-      this.items = data.results.map(item => {
-        return {
-          uuid: item.uuid,
-          name: item.name,
-          description: item.description,
-          url: item.links.view
-        };
-      });
+      this.items = data.results.map(
+        ({ uuid, name, description, links: { view: url } }) => ({
+          uuid,
+          name,
+          description,
+          url
+        })
+      );
       // eslint-disable-next-line
       console.log(this.items);
     } catch (err) {
@@ -62,7 +74,7 @@ export default {
       console.error(err);
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
