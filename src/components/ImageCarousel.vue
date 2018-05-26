@@ -5,45 +5,21 @@
                 indicators
                 background="#ababab"
                 :interval="4000"
-                img-width="1024"
-                img-height="480"
+                img-width="1280"
+                img-height="256"
                 v-model="slide"
                 @sliding-start="onSlideStart"
                 @sliding-end="onSlideEnd"
     >
 
-      <!-- Text slides with image -->
-      <b-carousel-slide caption="First slide"
-                        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-                        img-src="https://picsum.photos/1024/480/?image=52"
+      <b-carousel-slide v-for="item in items" :key="item.uuid" v-bind:caption="item.name"
+                        v-bind:text="item.description"
+                        v-bind:img-src="item.imageUrl"
       ></b-carousel-slide>
 
-      <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <h1>Hello world!</h1>
-      </b-carousel-slide>
-
-      <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
-      </b-carousel-slide>
-
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide>
-        <img slot="img" class="d-block img-fluid w-100" width="1024" height="480"
-             src="https://picsum.photos/1024/480/?image=55" alt="image slot">
-      </b-carousel-slide>
-
-      <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-      <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          eros felis, tincidunt a tincidunt eget, convallis vel est. Ut pellentesque
-          ut lacus vel interdum.
-        </p>
-      </b-carousel-slide>
 
     </b-carousel>
+
 
     <p class="mt-4">
       Slide #: {{ slide }}<br>
@@ -58,6 +34,10 @@ import carousel from "bootstrap-vue/es/components/carousel/carousel";
 import slide from "bootstrap-vue/es/components/carousel/carousel-slide";
 
 export default {
+  props: {
+    baseUrl: String,
+    searchTag: String
+  },
   components: {
     "b-carousel": carousel,
     "b-carousel-slide": slide
@@ -65,7 +45,8 @@ export default {
   data() {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
+      items: []
     };
   },
   methods: {
@@ -76,6 +57,33 @@ export default {
     onSlideEnd(slide) {
       console.log(slide);
       this.sliding = false;
+    }
+  },
+  async created() {
+    try {
+      const response = await fetch(
+        `${this.baseUrl}/api/search/?start=0&length=10&reverse=false&where=%2Fxml%2Fmetadata%2Ftags%2Ftag%20%3D%20'${
+          this.searchTag
+        }'&info=all&showall=false&status=LIVE`
+      );
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      const data = await response.json();
+      this.items = data.results.map(
+        ({ uuid, name, description, attachments }) => ({
+          uuid,
+          name,
+          description,
+          imageUrl:attachments[0].links.view
+        })
+      );
+      // eslint-disable-next-line
+      console.log(this.items);
+    } catch (err) {
+      // TODO: User-appropriate feedback
+      // eslint-disable-next-line
+      console.error(err);
     }
   }
 };
@@ -93,4 +101,8 @@ export default {
 @import "../../node_modules/bootstrap/scss/images";
 @import "../../node_modules/bootstrap/scss/carousel";
 @import "../../node_modules/bootstrap/scss/utilities";
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+}
 </style>
