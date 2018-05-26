@@ -8,8 +8,6 @@
                 img-width="1280"
                 img-height="256"
                 v-model="slide"
-                @sliding-start="onSlideStart"
-                @sliding-end="onSlideEnd"
     >
 
       <b-carousel-slide v-for="item in items" :key="item.uuid" v-bind:caption="item.name"
@@ -17,15 +15,7 @@
                         v-bind:img-src="item.imageUrl"
       ></b-carousel-slide>
 
-
     </b-carousel>
-
-
-    <p class="mt-4">
-      Slide #: {{ slide }}<br>
-      Sliding: {{ sliding }}
-    </p>
-
   </div>
 </template>
 
@@ -49,20 +39,12 @@ export default {
       items: []
     };
   },
-  methods: {
-    onSlideStart(slide) {
-      console.log(slide);
-      this.sliding = true;
-    },
-    onSlideEnd(slide) {
-      console.log(slide);
-      this.sliding = false;
-    }
-  },
   async created() {
     try {
       const response = await fetch(
-        `${this.baseUrl}/api/search/?start=0&length=10&reverse=false&where=%2Fxml%2Fmetadata%2Ftags%2Ftag%20%3D%20'${
+        `${
+          this.baseUrl
+        }/api/search/?start=0&length=10&reverse=false&where=%2Fxml%2Fmetadata%2Ftags%2Ftag%20%3D%20'${
           this.searchTag
         }'&info=all&showall=false&status=LIVE`
       );
@@ -75,7 +57,7 @@ export default {
           uuid,
           name,
           description,
-          imageUrl:attachments[0].links.view
+          imageUrl: attachments[0].links.view
         })
       );
       // eslint-disable-next-line
