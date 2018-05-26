@@ -1,7 +1,7 @@
 <template>
   <div class="search-results">
     <div class="search-header clearfix">
-      <img id="equellaLogo" v-bind:src="baseUrl + '/s/ewc-logo'" class="pull-right" alt="EQUELLA Logo" />
+      <img id="equellaLogo" v-bind:src="baseUrl + '/s/ewc-logo'" class="rounded float-right" alt="EQUELLA Logo" />
       <h1>
         {{ msg }}
       </h1>
@@ -11,7 +11,7 @@
     </div>
     <div class="search-items list-group">
       <div class="list-group-item media" v-for="item in items" :key="item.uuid">
-        <div class="media-left">
+        <div class="mr-3">
           <img v-bind:src="item.url + resultIcon" class="media-object" style="width:180px">
         </div>
         <div class="media-body">
@@ -75,42 +75,35 @@ export default {
 </script>
 
 <!-- a minimal scoped version of bootstrap -->
-<style lang="less" scoped>
+<style lang="scss">
 // core bootstrap framework
-@import "../../node_modules/bootstrap/less/variables.less";
-@import "../../node_modules/bootstrap/less/mixins.less";
+@import "../../node_modules/bootstrap/scss/functions.scss";
+@import "../../node_modules/bootstrap/scss/variables.scss";
+@import "../../node_modules/bootstrap/scss/mixins.scss";
 
 // bootstrap styles needed by page
-@import "../../node_modules/bootstrap/less/type.less";
-@import "../../node_modules/bootstrap/less/utilities.less";
-@import "../../node_modules/bootstrap/less/list-group.less";
-@import "../../node_modules/bootstrap/less/media.less";
-
-// set base fonts
-@headings-font-family: @font-family-base;
-
-p {
-  font-family: @font-family-base;
-}
+@import "../../node_modules/bootstrap/scss/type.scss";
+@import "../../node_modules/bootstrap/scss/utilities.scss";
+@import "../../node_modules/bootstrap/scss/list-group.scss";
+@import "../../node_modules/bootstrap/scss/media.scss";
 
 .search-results {
-  padding: @padding-large-horizontal;
+  padding: $spacer * 0.25;
 }
 
 #equellaLogo {
-  height: 8rem;
-  border-radius: @thumbnail-border-radius;
+  height: $spacer * 8;
 }
 
 .search-header p {
-  font-size: @font-size-h3;
+  font-size: $h3-font-size;
 }
 
 .search-items {
-  margin-top: 1rem;
+  margin-top: $spacer;
 }
 
 .search-items p {
-  font-size: @font-size-h4;
+  font-size: $h4-font-size;
 }
 </style>
