@@ -19,3 +19,9 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+# Gradle:
+.gradle/
+.idea/**/gradle.xml
+.idea/**/libraries
+build/
